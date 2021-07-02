@@ -1,26 +1,33 @@
 import logo from './logo.svg';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './App.css';
+import Video from './Video/Video';
 
 function App() {
   return (
     <Container>
       <Row>
-        <Col></Col>
-        <Form>
-          <Form.Row>
-            <Col>
-              <Form.Control size="lg" type="text" placeholder="Search" />
-            </Col>
-            <Col>
-              <Button variant="primary" size="lg">Search</Button>
-            </Col>
-          </Form.Row>
-        </Form>
+        <Col>
+          <Form>
+            <Form.Row>
+              <Col>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="Search" />
+              </Col>
+              <Col xs={3} md={3}>
+                <Button
+                  variant="primary"
+                  size="lg">
+                  Search
+                </Button>
+              </Col>
+            </Form.Row>
+          </Form></Col>
       </Row>
       <Row>
-        <Col xs={12} lg={4}>Single Video</Col>
-        <Col xs={12} lg={4}>Suggestions</Col>
+        <Video />
       </Row>
     </Container>
   );
