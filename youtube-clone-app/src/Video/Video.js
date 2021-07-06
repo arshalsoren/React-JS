@@ -8,17 +8,18 @@ import Youtube from "simple-youtube-api"
 import config from '../config'
 const youtube = new Youtube(config.api_key);
 
-function Video() {
+function Video({ searchText }) {
     const [videoList, setVideoList] = useState([]);
 
     useEffect(
         () => {
             callAPI();
-        }, []
+        }, [searchText]
     );
+
     const callAPI = async () => {
-        const response = youtube.searchVideos('vsauce', 5);
-        console.log(response);
+        const response = await youtube.searchVideos(searchText, 5);
+        //console.log(response);
 
         setVideoList(response);
     }
