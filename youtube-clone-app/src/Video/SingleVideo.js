@@ -7,15 +7,15 @@ function SingleVideo({ detail }) {
             {detail && (
                 <div>
                     <iframe
-                        width="780"
-                        height="439"
+                        width="845"
+                        height="540"
                         src={`https://www.youtube.com/embed/${detail.id}`}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen>
                     </iframe>
-                    <h1>{detail.title}</h1>
-                    <h4>{detail.description}</h4>
+                    <h3>{detail.title}</h3>
+                    <p>{detail.description}</p>
                 </div>
             )}
         </div>
