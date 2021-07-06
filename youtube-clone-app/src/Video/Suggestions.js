@@ -8,23 +8,31 @@ function Suggestions({ videos, changeSelection }) {
     }
 
     return (
-        <ListGroup>
-            <div>
-                {videos.length > 0 && videos.map(data =>
-                    <p
-                        style={{ cursor: 'pointer' }}
-                        onClick={() => { changeSelectedVideo(data) }}
-                    >
-                        {data.title}
-                    </p>)
-                }
-            </div>
-            {/* <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item> */}
-        </ListGroup>
+        <React.Fragment>
+            {videos.length > 0 &&
+                videos.map(data => (
+                    <ListGroup.Item onClick={()=>changeSelectedVideo(data)}>
+                        <div
+                            style={{
+                                marginBottom: 10,
+                                padding: 10,
+                                display: "flex",
+                                cursor: "pointer"
+                            }}
+                        >
+                            <div>
+                                <img src={data.thumbnails.medium.url} height="70px" />
+                            </div>
+                            <div style={{ paddingLeft: 5}}>
+                                <div className="sugg-title">{data.title}</div>
+                                <div className="sugg-channel">{data.channel.title}</div>
+                            </div>
+                        </div>
+                    </ListGroup.Item>
+                )
+                )
+            }
+        </React.Fragment>
     )
 }
 

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './App.css';
 import Video from './Video/Video';
+import Logo from "./youtube-logo.jpg"
 
 function App() {
 
@@ -19,15 +20,23 @@ function App() {
       <Row>
         <Col>
           <Form onSubmit={(e) => onSubmitText(e)}>
-            <Form.Row>
-              <Col>
+            <Form.Row className="search-box">
+              <Col xs={12} md={2} style={{ margin: "auto" }}>
+                <img
+                  src={Logo}
+                  alt="youtube logo"
+                  width="100px"
+                  style={{ margin: "auto" }} />
+              </Col>
+              <Col md={7} xs={9}>
                 <Form.Control
                   size="lg"
                   type="text"
                   placeholder="Search"
-                  onChange={e => setSearchTerm(e.target.value)} />
+                  onChange={e => setSearchTerm(e.target.value)}
+                  style={{ flex: 1 }} />
               </Col>
-              <Col xs={3} md={3}>
+              <Col xs={9} md={7}>
                 <Button
                   variant="primary"
                   size="lg"

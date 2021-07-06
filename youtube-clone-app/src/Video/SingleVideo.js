@@ -7,8 +7,8 @@ function SingleVideo({ detail }) {
             {detail && (
                 <div>
                     <iframe
-                        width="845"
-                        height="540"
+                        width="100%"
+                        height="400px"
                         src={`https://www.youtube.com/embed/${detail.id}`}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
