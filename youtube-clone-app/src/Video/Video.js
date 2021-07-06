@@ -9,6 +9,7 @@ import config from '../config'
 const youtube = new Youtube(config.api_key);
 
 function Video({ searchText }) {
+    document.title = "YouTube-Clone-App";
     const [videoList, setVideoList] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState({});
 
@@ -20,12 +21,12 @@ function Video({ searchText }) {
 
     const callAPI = async () => {
         const response = await youtube.searchVideos(searchText, 18);
-        //console.log(response);
+        console.log(response);
         setSelectedVideo(response[0]);
         setVideoList(response);
     }
 
-    const selectedVideoPlay=(videoDetail)=>{
+    const selectedVideoPlay = (videoDetail) => {
         setSelectedVideo(videoDetail);
     }
 
@@ -35,7 +36,7 @@ function Video({ searchText }) {
                 <SingleVideo detail={selectedVideo} />
             </Col>
             <Col xs={12} lg={4}>
-                <Suggestions videos={videoList} changeSelection={selectedVideoPlay}/>
+                <Suggestions videos={videoList} changeSelection={selectedVideoPlay} />
             </Col>
         </React.Fragment>
     )
