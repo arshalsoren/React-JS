@@ -47,10 +47,12 @@ function Video({ searchText }) {
                     : <SingleVideo detail={selectedVideo} />}
             </Col>
             <Col xs={12} lg={4}>
-                <Suggestions
-                    videos={videoList}
-                    changeSelection={selectedVideoPlay}
-                    selectedVideoId={selectedVideo.id} />
+                <ListGroup>
+                    <Suggestions
+                        videos={videoList}
+                        changeSelection={selectedVideoPlay}
+                        selectedVideoId={selectedVideo.id} />
+                </ListGroup>
             </Col>
         </React.Fragment>
     )
